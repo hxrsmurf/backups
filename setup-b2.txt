@@ -1,0 +1,11 @@
+Backblaze B2 Infos:
+b2Bucket="redacted"
+apt-get install git -yf
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+pip install -U pip setuptools
+git clone https://github.com/Backblaze/B2_Command_Line_Tool.git
+python setup.py install
+b2Account="redacted"
+b2Key="redacted"
+b2 authorize-account $b2Account $b2Key

@@ -3,6 +3,7 @@
 The actual backup script I use, with infos removed. Backups to Backblaze's B2 and Google's Storage (Regional Storage). Includes date-timestamp (copied from Seafile's manual) and e-mails me when complete.
 
 "--threads 0" - allows to use all threads
+
 "-m" - uses all resources available
 
 # commands-to-migrate.txt

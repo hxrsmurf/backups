@@ -1,0 +1,23 @@
+apt-get install mysql-server php php-gd php-json php-mbstring php-mysql php-session php-zip -y
+
+rsync -avz --progress root@kvchmurphy.com:/mnt/seafile/sql/ ~/sql/
+rsync -avz --progress root@kvchmurphy.com:/var/www/photos.hxrsmurf.info /var/www/photos.hxrsmurf.info
+rsync -avz --progress root@kvchmurphy.com:/var/www/kvchmurphy.com /var/www/kvchmurphy.com
+rsync -avz --progress root@kvchmurphy.com:/var/www/hxrsmurf.info /var/www/hxrsmurf.info
+rsync -avz --progress --delete root@redacted:/mnt/seafile/ /mnt/seafile/
+
+CREATE USER 'photos'@'localhost' IDENTIFIED BY 'redacted';
+GRANT ALL PRIVILEGES ON * . * TO 'photos'@'localhost';
+
+CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'redacted';
+GRANT ALL PRIVILEGES ON * . * TO 'wordpress'@'localhost';
+
+CREATE USER 'dreams'@'localhost' IDENTIFIED BY 'redacted';
+GRANT ALL PRIVILEGES ON * . * TO 'dreams'@'localhost';
+
+CREATE USER 'kevin'@'redacted' IDENTIFIED BY 'redacted';
+GRANT ALL PRIVILEGES ON * . * TO 'kevin'@'redacted';
+
+certbot certonly --manual --preferred-challenges dns -d photos.hxrsmurf.info
+certbot certonly --manual --preferred-challenges dns -d hxrsmurf.info
+certbot certonly --manual --preferred-challenges dns -d kvchmurphy.com
